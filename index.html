@@ -18,7 +18,6 @@
         width:100%;
         height:89px;
         position: absolute;
-        bottom:200px;
         -webkit-animation: fall 10s linear infinite;
         -moz-animation: fall 10s linear infinite;
         
@@ -31,22 +30,13 @@
       }
     </style>
     
-    <meta charset="UTF-8">
-    <title>Purple Rain</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
       var nbDrop = 858; 
       function randRange( minNum, maxNum) {
         return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
       }
-      function randWord(){
-        n = Math.floor(Math.random() * 2) + 1;
-        if(n == 2)
-          return "p<br>o<br>e<br>t<br>a";
-        else
-          return "s<br>h<br>a<br>k<br>i<br>r<br>a"
-      }
+      
       function createRain() {
         for(i = 1; i < nbDrop; i++) {
           var dropLeft = randRange(0,1600);
