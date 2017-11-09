@@ -1,49 +1,12 @@
 <html>
-  <head>
-    <style>
-      /*@import url('https://fonts.googleapis.com/css?family=Lora');*/
-      body{
-        background: #0D343A;
-        background: -webkit-linear-gradient(#0D343A, #000000); /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(#0D343A, #000000); /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(#0D343A, #000000);
-        overflow: hidden;
-      }
-      .drop {
-        /*background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
-        background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);*/
-        /*font-family: 'Lora', serif;*/
-        color: #ffffff;
-        width:100%;
-        height:89px;
-        position: absolute;
-        -webkit-animation: fall 10s linear infinite;
-        -moz-animation: fall 10s linear infinite;
-        
-      }
-      @-webkit-keyframes fall {
-        to {margin-top:900px;}
-      }
-      @-moz-keyframes fall {
-        to {margin-top:900px;}
-      }
-    </style>
-    
+  <head>    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
-      var nbDrop = 858; 
-      function randRange( minNum, maxNum) {
-        return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
-      }
-      
       function createRain() {
-        for(i = 1; i < nbDrop; i++) {
-          var dropLeft = randRange(0,1600);
-          var dropTop = randRange(-1000,1400);
-          randWord();
-          $('.rain').append('<div class="drop" id="drop'+i+'"><img src="brit.png"></div>');
-          $('#drop'+i).css('left',dropLeft);
-          $('#drop'+i).css('top',dropTop);
+        var pos = 0;
+        for(i = 1; i < 10; i++) {
+          pos += 10;
+          $('.rain').append('<img style="position:absolute; left:' + pos + '%;" src="brit.png">');
         }
       }
     </script>
