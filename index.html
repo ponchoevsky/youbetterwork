@@ -1,22 +1,72 @@
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-</head>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  
+        <style>
+      /*@import url('https://fonts.googleapis.com/css?family=Lora');*/
+      body{
+        background: #0D343A;
+        background: -webkit-linear-gradient(#0D343A, #000000); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#0D343A, #000000); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#0D343A, #000000);
+        overflow: hidden;
+      }
+      .drop {
+        /*background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
+        background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);*/
+        /*font-family: 'Lora', serif;*/
+        background-image: url("http://bbsimg.ngfiles.com/1/25940000/ngbbs57fa2b91df17e.png");
+        color: #ffffff;
+        /*width:1px;*/
+        height:89px;
+        position: absolute;
+        bottom:200px;
+        -webkit-animation: fall 10s linear infinite;
+        -moz-animation: fall 10s linear infinite;
+        
+      }
+      @-webkit-keyframes fall {
+        to {margin-top:900px;}
+      }
+      @-moz-keyframes fall {
+        to {margin-top:900px;}
+      }
+    </style>
+    
+    <meta charset="UTF-8">
+    <title>Purple Rain</title>
 
-<body>
-  <div class="container">
-      <div class="row align-items-center">
-        <div class="col">
-          One of three columns
-        </div>
-        <div class="col">
-          One of three columns
-        </div>
-        <div class="col">
-          One of three columns
-        </div>
-      </div>
-  </div>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var nbDrop = 858; 
+      function randRange( minNum, maxNum) {
+        return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+      }
+      function randWord(){
+        n = Math.floor(Math.random() * 2) + 1;
+        if(n == 2)
+          return "p<br>o<br>e<br>t<br>a";
+        else
+          return "s<br>h<br>a<br>k<br>i<br>r<br>a"
+      }
+      function createRain() {
+        for(i = 1; i < nbDrop; i++) {
+          var dropLeft = randRange(0,1600);
+          var dropTop = randRange(-1000,1400);
+          randWord();
+          $('.rain').append('<div class="drop" id="drop'+i+'">'+randWord()+'</div>');
+          $('#drop'+i).css('left',dropLeft);
+          $('#drop'+i).css('top',dropTop);
+        }
+      }
+    </script>
+    
+  </head>
+
+  <body>
+    <section class="rain"></section>
+  </body>
+</html>
